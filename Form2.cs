@@ -19,22 +19,30 @@ namespace Pong
 
         private void trollFaceCharacter_Click(object sender, EventArgs e)
         {
-
+            (this.Owner as Pong).pongBall.Image = Image.FromFile(@"C:\Users\raf_c\OneDrive\Imagens\projetos\trollface.png");
+            (this.Owner as Pong).pongTimer.Start();
+            this.Hide();
         }
 
         private void mogCharacter_Click(object sender, EventArgs e)
         {
-
+            (this.Owner as Pong).pongBall.Image = Image.FromFile(@"C:\Users\raf_c\OneDrive\Imagens\projetos\meme2.png");
+            (this.Owner as Pong).pongTimer.Start();
+            this.Hide();
         }
 
         private void noCharacter_Click(object sender, EventArgs e)
         {
-
+            (this.Owner as Pong).pongBall.Image = Image.FromFile(@"C:\Users\raf_c\OneDrive\Imagens\projetos\meme3.png");
+            (this.Owner as Pong).pongTimer.Start();
+            this.Hide();
         }
 
         private void foreverAlone_Click(object sender, EventArgs e)
         {
-
+            (this.Owner as Pong).pongBall.Image = Image.FromFile(@"C:\Users\raf_c\OneDrive\Imagens\projetos\meme4.png");
+            (this.Owner as Pong).pongTimer.Start();
+            this.Hide();
         }
     }
 }

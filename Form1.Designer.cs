@@ -29,36 +29,38 @@ namespace Pong
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pong));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cpuPlayerBox = new System.Windows.Forms.PictureBox();
+            this.player1 = new System.Windows.Forms.PictureBox();
+            this.cpuPlayer = new System.Windows.Forms.PictureBox();
             this.pongBall = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.playerScore = new System.Windows.Forms.Label();
-            this.cpuScore = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuPlayerBox)).BeginInit();
+            this.playerScoreLabel = new System.Windows.Forms.Label();
+            this.cpuScoreLabel = new System.Windows.Forms.Label();
+            this.pongTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pongBall)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // player1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 249);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(15, 118);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.player1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.player1.Location = new System.Drawing.Point(12, 249);
+            this.player1.Name = "player1";
+            this.player1.Size = new System.Drawing.Size(15, 118);
+            this.player1.TabIndex = 0;
+            this.player1.TabStop = false;
             // 
-            // cpuPlayerBox
+            // cpuPlayer
             // 
-            this.cpuPlayerBox.BackColor = System.Drawing.Color.Lime;
-            this.cpuPlayerBox.Location = new System.Drawing.Point(1026, 249);
-            this.cpuPlayerBox.Name = "cpuPlayerBox";
-            this.cpuPlayerBox.Size = new System.Drawing.Size(15, 118);
-            this.cpuPlayerBox.TabIndex = 1;
-            this.cpuPlayerBox.TabStop = false;
+            this.cpuPlayer.BackColor = System.Drawing.Color.Lime;
+            this.cpuPlayer.Location = new System.Drawing.Point(1026, 249);
+            this.cpuPlayer.Name = "cpuPlayer";
+            this.cpuPlayer.Size = new System.Drawing.Size(15, 118);
+            this.cpuPlayer.TabIndex = 1;
+            this.cpuPlayer.TabStop = false;
             // 
             // pongBall
             // 
@@ -82,29 +84,34 @@ namespace Pong
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // playerScore
+            // playerScoreLabel
             // 
-            this.playerScore.BackColor = System.Drawing.Color.Transparent;
-            this.playerScore.Font = new System.Drawing.Font("Cascadia Mono", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerScore.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.playerScore.Location = new System.Drawing.Point(400, 74);
-            this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(55, 55);
-            this.playerScore.TabIndex = 4;
-            this.playerScore.Text = "0";
-            this.playerScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.playerScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerScoreLabel.Font = new System.Drawing.Font("Cascadia Mono", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerScoreLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.playerScoreLabel.Location = new System.Drawing.Point(400, 74);
+            this.playerScoreLabel.Name = "playerScoreLabel";
+            this.playerScoreLabel.Size = new System.Drawing.Size(55, 55);
+            this.playerScoreLabel.TabIndex = 4;
+            this.playerScoreLabel.Text = "0";
+            this.playerScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cpuScore
+            // cpuScoreLabel
             // 
-            this.cpuScore.BackColor = System.Drawing.Color.Transparent;
-            this.cpuScore.Font = new System.Drawing.Font("Cascadia Mono", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpuScore.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.cpuScore.Location = new System.Drawing.Point(638, 74);
-            this.cpuScore.Name = "cpuScore";
-            this.cpuScore.Size = new System.Drawing.Size(55, 55);
-            this.cpuScore.TabIndex = 5;
-            this.cpuScore.Text = "0";
-            this.cpuScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cpuScoreLabel.BackColor = System.Drawing.Color.Transparent;
+            this.cpuScoreLabel.Font = new System.Drawing.Font("Cascadia Mono", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpuScoreLabel.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.cpuScoreLabel.Location = new System.Drawing.Point(638, 74);
+            this.cpuScoreLabel.Name = "cpuScoreLabel";
+            this.cpuScoreLabel.Size = new System.Drawing.Size(55, 55);
+            this.cpuScoreLabel.TabIndex = 5;
+            this.cpuScoreLabel.Text = "0";
+            this.cpuScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pongTimer
+            // 
+            this.pongTimer.Enabled = true;
+            this.pongTimer.Tick += new System.EventHandler(this.pongTimer_Tick);
             // 
             // Pong
             // 
@@ -113,11 +120,11 @@ namespace Pong
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1053, 648);
-            this.Controls.Add(this.cpuScore);
-            this.Controls.Add(this.playerScore);
+            this.Controls.Add(this.cpuScoreLabel);
+            this.Controls.Add(this.playerScoreLabel);
             this.Controls.Add(this.pongBall);
-            this.Controls.Add(this.cpuPlayerBox);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.cpuPlayer);
+            this.Controls.Add(this.player1);
             this.Controls.Add(this.pictureBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -125,8 +132,11 @@ namespace Pong
             this.MinimumSize = new System.Drawing.Size(1069, 687);
             this.Name = "Pong";
             this.Text = "Pong";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuPlayerBox)).EndInit();
+            this.Load += new System.EventHandler(this.Pong_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Pong_KeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pongBall)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -135,12 +145,13 @@ namespace Pong
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox cpuPlayerBox;
-        private System.Windows.Forms.PictureBox pongBall;
+        private System.Windows.Forms.PictureBox player1;
+        private System.Windows.Forms.PictureBox cpuPlayer;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label playerScore;
-        private System.Windows.Forms.Label cpuScore;
+        private System.Windows.Forms.Label playerScoreLabel;
+        private System.Windows.Forms.Label cpuScoreLabel;
+        public System.Windows.Forms.PictureBox pongBall;
+        public System.Windows.Forms.Timer pongTimer;
     }
 }
 
